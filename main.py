@@ -18,7 +18,7 @@ def user_interaction() -> None:
     vacancies_list = Vacancy.create_json(hh_vacancies)
     file = "vacancies.json"
     all_vacancy = EditJson(file)
-    all_vacancy.deleting_vacancies()
+    # all_vacancy.deleting_vacancies()
     all_vacancy.save_to_file(vacancies_list)
 
     filtered_vacancies = filter_vacancies_by_keywords(vacancies_list, filter_words)
@@ -36,12 +36,12 @@ def user_interaction() -> None:
         if filename:
             file = f"{filename}.json"
             result = EditJson(file)
-            result.deleting_vacancies()
+            # result.deleting_vacancies()
             result.save_to_file(top_vacancies)
             print(f"Вакансии успешно сохранены в файл -> {file}")
         else:
             result = EditJson()
-            result.deleting_vacancies()
+            # result.deleting_vacancies()
             result.save_to_file(top_vacancies)
             print("Вакансии сохранены в файл по умолчанию -> vacancies.json")
     else:
