@@ -1,16 +1,16 @@
-import os
 import json
+import os
 from typing import Any, Dict, List
 
-from src.abstract_classes import AbstractEditJson
 from config import PATH_TO_JSON
+from src.abstract_classes import AbstractEditJson
 from src.vacancy import Vacancy
 
 
 class EditJson(AbstractEditJson):
     """Класс для работы с JSON-файлами"""
 
-    def __init__(self, file_name='vacancies.json') -> None:
+    def __init__(self, file_name="vacancies.json") -> None:
         self.__file_name = file_name
         self.path_to_file = os.path.join(PATH_TO_JSON, self.__file_name)
 
@@ -73,10 +73,3 @@ class EditJson(AbstractEditJson):
         """Метод очищает JSON-файл"""
         with open(self.path_to_file, "w", encoding="utf-8") as file:
             json.dump([], file, ensure_ascii=False, indent=4)
-
-
-
-
-
-
-

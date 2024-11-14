@@ -2,6 +2,7 @@ import unittest
 
 from src.utils import filter_vacancies_by_keywords, get_top_n_by_salary
 
+
 class Vacancy:
     def __init__(self, title, company, salary):
         self.title = title
@@ -16,7 +17,7 @@ class TestVacancySorter(unittest.TestCase):
             Vacancy("Data Scientist", "Finance Co", 120000),
             Vacancy("Product Manager", "E-commerce Inc", 180000),
             Vacancy("DevOps Engineer", "Cloud Services", 110000),
-            Vacancy("UX Designer", "Design Studio", 140000)
+            Vacancy("UX Designer", "Design Studio", 140000),
         ]
 
     def test_empty_input(self):

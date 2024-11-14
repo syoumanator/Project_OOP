@@ -32,10 +32,3 @@ class AbstractEditJson(ABC):
     def save_to_file(self, vacancies) -> None:
         """Метод сохраняющий список вакансий в JSON-файл"""
         pass
-
-
-
-
-
-
-

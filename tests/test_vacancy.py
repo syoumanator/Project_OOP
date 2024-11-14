@@ -18,10 +18,14 @@ def test_vacancy_validate(test_vacancy_2):
 
 
 def test_vacancy_str(test_vacancy, test_vacancy_2):
-    assert str(test_vacancy) == ('Junior Python Engineer: 1+ year of professional work experience, Регион:Минск, '
-                                 'Зарплата: 150000, Ссылка: https://hh.ru/vacancy/110646488')
-    assert str(test_vacancy_2) == ('Junior Python Engineer: Описание отсутствует, Регион:Регион отсутствует, '
-                                 'Зарплата: Нет данных, Ссылка: https://hh.ru/vacancy/110646488')
+    assert str(test_vacancy) == (
+        "Junior Python Engineer: 1+ year of professional work experience, Регион:Минск, "
+        "Зарплата: 150000, Ссылка: https://hh.ru/vacancy/110646488"
+    )
+    assert str(test_vacancy_2) == (
+        "Junior Python Engineer: Описание отсутствует, Регион:Регион отсутствует, "
+        "Зарплата: Нет данных, Ссылка: https://hh.ru/vacancy/110646488"
+    )
 
 
 def test_vacancy_comparison(test_vacancy, test_vacancy_2):
@@ -38,5 +42,7 @@ def test_create_json(json_data):
     assert result[0].url == "https://hh.ru/vacancy/110711272"
     assert result[0].area == "Алматы"
     assert result[0].salary == 0
-    assert result[0].description == ('Basic knowledge of Python or 1 year in a role focused on Python backend '
-                                     'development (perfectly with Django framework). ')
+    assert result[0].description == (
+        "Basic knowledge of Python or 1 year in a role focused on Python backend "
+        "development (perfectly with Django framework). "
+    )

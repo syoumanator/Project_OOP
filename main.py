@@ -1,11 +1,10 @@
-from src.vacancy_api import VacanciesRequest
+from src.utils import filter_vacancies_by_keywords, get_top_n_by_salary, print_vacancies
 from src.vacancy import Vacancy
-from src.utils import filter_vacancies_by_keywords, get_top_n_by_salary, \
-    print_vacancies
+from src.vacancy_api import VacanciesRequest
 from src.vacancy_json import EditJson
 
 
-def user_interaction():
+def user_interaction() -> None:
 
     print("Вас приветствует программа поиска вакансий с сайта hh.ru")
     search_query = input("Введите поисковый запрос: ")
@@ -17,7 +16,7 @@ def user_interaction():
     hh_vacancies = hh_api.load_vacancies(search_query)
 
     vacancies_list = Vacancy.create_json(hh_vacancies)
-    file = f"vacancies.json"
+    file = "vacancies.json"
     all_vacancy = EditJson(file)
     all_vacancy.deleting_vacancies()
     all_vacancy.save_to_file(vacancies_list)
@@ -44,7 +43,7 @@ def user_interaction():
             result = EditJson()
             result.deleting_vacancies()
             result.save_to_file(top_vacancies)
-            print(f"Вакансии сохранены в файл по умолчанию -> vacancies.json")
+            print("Вакансии сохранены в файл по умолчанию -> vacancies.json")
     else:
         print("Вакансии не сохранены")
 
