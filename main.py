@@ -6,13 +6,13 @@ from src.vacancy_json import EditJson
 
 
 def user_interaction():
-    print("Вас приветствует программа поиска вакансий с сайта hh.ru")
-    search_query = "Python-developer"
 
-    # search_query = input("Введите поисковый запрос: ")
-    # filter_words = input("Введите ключевые слова для фильтрации вакансий разделяя пробелом: ").split()
+    print("Вас приветствует программа поиска вакансий с сайта hh.ru")
+    search_query = input("Введите поисковый запрос: ")
+    filter_words = input("Введите ключевые слова для фильтрации вакансий разделяя пробелом: ").split()
+    top_n = int(input("Введите количество вакансий для вывода в топ N по зарплате: "))
     print("Идет поиск вакансий...")
-    filter_words = ["developer"]
+
     hh_api = VacanciesRequest()
     hh_vacancies = hh_api.load_vacancies(search_query)
 
@@ -23,7 +23,6 @@ def user_interaction():
     all_vacancy.save_to_file(vacancies_list)
 
     filtered_vacancies = filter_vacancies_by_keywords(vacancies_list, filter_words)
-    top_n = int(input("Введите количество вакансий для вывода в топ N по зарплате: "))
 
     if top_n:
         top_vacancies = get_top_n_by_salary(filtered_vacancies, top_n)
